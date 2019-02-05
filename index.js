@@ -45,7 +45,9 @@ function release (client, err) {
     }, this.options.idleTimeoutMillis)
   }
 
+  if (this._clients.indexOf(client) > -1) {
   this._idle.push(new IdleItem(client, tid))
+  }
   this._pulseQueue()
 }
 
